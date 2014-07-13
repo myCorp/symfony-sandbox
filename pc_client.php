@@ -13,33 +13,33 @@ class client
 {
 	/**
 	*ORM\Id
-	*ORM\Column(type="integer")
+	*ORM\Column(type="integer", unique=true)
 	*ORM\GeneratedValue(strategy="AUTO")
 	*/
 	protected $clientID;
 
 	/**
-	*ORM\Column(type="string",length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $firstName;
 
 	/**
-	*ORM\Column(type="string",length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $lastName;
 
 	/**
-	*ORM\Column(type="string",length=64)
+	*ORM\Column(type="string", length=64, nullable=true)
 	*/
 	protected $address;
 
 	/**
-	*ORM\Column(type="string",length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $phone;
 
 	/**
-	*ORM\Column(type="string",length=32)
+	*ORM\Column(type="string", length=32, nullable=true)
 	*/
 	protected $mail;
 }

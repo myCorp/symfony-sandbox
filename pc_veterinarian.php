@@ -19,12 +19,12 @@ class veterinarian
 	protected $id;
 
 	/**
-	*ORM\Column(type="string", length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $name;
 
 	/**
-	*ORM\Column(type="string", length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $profession;
 }

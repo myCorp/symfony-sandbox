@@ -26,17 +26,17 @@ class pet
 	protected $clientID;
 
 	/**
-	*ORM\Column(type="string", length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $nickname;
 
 	/**
-	*ORM\Column(type="string", length=16)
+	*ORM\Column(type="string", length=16, nullable=true)
 	*/
 	protected $breed;
 
 	/**
-	*ORM\Column(type="integer")
+	*ORM\Column(type="integer", nullable=true)
 	*/
 	protected $age;
 }
