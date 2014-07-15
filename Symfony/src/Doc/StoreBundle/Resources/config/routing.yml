@@ -1,0 +1,18 @@
+doc_show_client:
+    path:    /client/{ClientNO}
+    defaults: { _controller: DocStoreBundle:Default:show }
+    requirements:
+             ClientNO:  \d+
+
+doc_index_homepage:
+    path:     /client/{firstName}
+    defaults: { _controller: DocStoreBundle:Default:index }
+
+doc_create_client:
+    path:    /create
+    defaults: { _controller: DocStoreBundle:Default:create }
+
+doc_query:
+    path:    /query
+    defaults: { _controller: DocStoreBundle:Default:query }
+

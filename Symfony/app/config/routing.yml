@@ -1,0 +1,15 @@
+doc_store:
+    resource: "@DocStoreBundle/Resources/config/routing.yml"
+    prefix:   /doc
+
+acme_hello:
+    resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+    prefix:   /acme
+
+DemosBlogBundle:
+    resource: "@DemosBlogBundle/Resources/config/routing.yml"
+    prefix:   /demos
+
+Test:
+    pattern:      /helloo/{name}
+    defaults:     { _controller: MyTestBundle:Test:index, color:white }

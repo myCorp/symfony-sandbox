@@ -1,0 +1,3 @@
+blog_list:
+    pattern:  /blog
+    defaults: { _controller: DemosBlogBundle:Blog:list }
