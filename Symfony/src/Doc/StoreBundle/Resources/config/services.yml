@@ -1,0 +1,7 @@
+parameters:
+#    doc_store.example.class: Doc\StoreBundle\Example
+
+services:
+#    doc_store.example:
+#        class: %doc_store.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
