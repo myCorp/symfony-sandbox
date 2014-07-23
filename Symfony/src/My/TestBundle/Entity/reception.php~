@@ -1,12 +1,12 @@
 <?php 
+//src/My/TestBundle/Entity/reception.php
 
-//src/Doc/StoreBundle/Entity/reception.php
-namespace Doc\StoreBundle\Entity;
+namespace My\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
-*@ORM\Entity(repositoryClass="Doc\StoreBundle\Repository\receptionRepository")
+*@ORM\Entity(repositoryClass="My\TestBundle\Repository\receptionRepository")
 *@ORM\Table(name="reception")
 */
 class reception
@@ -19,7 +19,7 @@ class reception
 	protected $id;
 
 	/**
-	*@ORM\Id Column(type="integer")
+	*@ORM\Id Column(type="integer", nullable=false)
 	*/
 	protected $clientID;
 
@@ -49,7 +49,7 @@ class reception
 	protected $comment;
 
 	/**
-	*@ORM\Id Column(type="integer")
+	*@ORM\Id Column(type="integer", unique=false, nullable=false)
 	*/
 	protected $doctor_id;
 
@@ -70,7 +70,7 @@ class reception
 	protected $clirec;
 
 	/**
-	*@ORM\OneToOne(targetEntity="veterinarian", inversedBy="id")
+	*@ORM\OneToOne(targetEntity="veterinarian")
 	*@ORM\JoinColumn(name="doctor_id",referencedColumnName="id")
 	*/
 	protected $docid;
@@ -249,10 +249,10 @@ class reception
     /**
      * Set clirec
      *
-     * @param \Doc\StoreBundle\Entity\client $clirec
+     * @param \My\TestBundle\Entity\client $clirec
      * @return reception
      */
-    public function setClirec(\Doc\StoreBundle\Entity\client $clirec = null)
+    public function setClirec(\My\TestBundle\Entity\client $clirec = null)
     {
         $this->clirec = $clirec;
 
@@ -262,7 +262,7 @@ class reception
     /**
      * Get clirec
      *
-     * @return \Doc\StoreBundle\Entity\client 
+     * @return \My\TestBundle\Entity\client 
      */
     public function getClirec()
     {
@@ -272,10 +272,10 @@ class reception
     /**
      * Set docid
      *
-     * @param \Doc\StoreBundle\Entity\veterinarian $docid
+     * @param \My\TestBundle\Entity\veterinarian $docid
      * @return reception
      */
-    public function setDocid(\Doc\StoreBundle\Entity\veterinarian $docid = null)
+    public function setDocid(\My\TestBundle\Entity\veterinarian $docid = null)
     {
         $this->docid = $docid;
 
@@ -285,7 +285,7 @@ class reception
     /**
      * Get docid
      *
-     * @return \Doc\StoreBundle\Entity\veterinarian 
+     * @return \My\TestBundle\Entity\veterinarian 
      */
     public function getDocid()
     {

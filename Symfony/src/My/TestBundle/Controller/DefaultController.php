@@ -1,27 +1,32 @@
 <?php
-// src/Doc/StoreBundle/Controller/DefaultController.php
+// src/My/TestBundle/Controller/DefaultController.php
 
-namespace Doc\StoreBundle\Controller;
+namespace My\TestBundle\Controller;
 
-use Doc\StoreBundle\Entity\client;
+use My\TestBundle\Entity\client;
+use My\TestBundle\Entity\pet;
+use My\TestBundle\Entity\veterinarian;
+use My\TestBundle\Entity\reception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+//use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     public function indexAction($firstName)
     {
-        return $this->render('DocStoreBundle:Default:index.html.twig', array('name' => $firstName));
+        return $this->render('MyTestBundle:Default:index.html.twig', array('name' => $firstName));
     }
 
     public function createAction()
 	{
     $client = new client();
-    $client->setfirstName('yuiiyu');
-    $client->setlastname('jklj');
+    $client->setfirstName('qweqwe');
+    $client->setlastname('asasd');
     $client->setaddress('moskow');
-    $client->setphone('1235');
-    $client->setmail('qqqwwe@mail.ru');
+    $client->setphone('67889');
+    $client->setmail('zxzxc@mail.ru');
+    $client->addReception();
 
     $em = $this->getDoctrine()->getEntityManager();
     $em->persist($client);
@@ -33,7 +38,7 @@ class DefaultController extends Controller
     public function showAction($ClientNO)
     {
     $product = $this->getDoctrine()
-        ->getRepository('DocStoreBundle:client')
+        ->getRepository('MyTestBundle:client')
         ->find($ClientNO);
 
     if (!$product) {
@@ -60,9 +65,9 @@ class DefaultController extends Controller
 
     public function queryAction()
 
-    {   
+    {
     $em = $this->getDoctrine()->getEntityManager();
-    $results = $em->getRepository('DocStoreBundle:client')
+    $results = $em->getRepository('MyTestBundle:client')
                 ->findAllOrderedByName();
 
 foreach ($results as $obj) { echo json_encode((array)$obj); }
@@ -71,6 +76,35 @@ foreach ($results as $obj) { echo json_encode((array)$obj); }
  $response->headers->set('Content-Type', 'application/json');
  return $response;
 
-
     }
+
+    public function createDocAction()
+	{
+    $veterinarian = new veterinarian();
+    $veterinarian->setname('Volodya S');
+    $veterinarian->setprofession('doctor');
+
+        $em = $this->getDoctrine()->getEntityManager();
+    $em->persist($veterinarian);
+    $em->flush();
+
+    	return new Response('Created product name '.$veterinarian->getname());
+	}
+
+	 public function createPetAction()
+	{
+    $pet = new pet();
+    $pet->setnickname('boris');
+    $pet->setbreed('cat');
+    $pet->setage('6');
+    $pet->getClipet('1');
+
+        $em = $this->getDoctrine()->getEntityManager();
+    $em->persist($pet);
+    $em->flush();
+
+    	return new Response('Created product pet '.$pet->getnickname());
+	}
+
+
 }

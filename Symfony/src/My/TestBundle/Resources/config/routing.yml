@@ -1,0 +1,37 @@
+show_clientNO:
+    path:    /client/{ClientNO}
+    defaults: { _controller: MyTestBundle:Default:show }
+    requirements:
+             ClientNO:  \d+
+
+doc_index_homepage:
+    path:     /client/{firstName}
+    defaults: { _controller: MyTestBundle:Default:index }
+
+create_client:
+    path:     /create
+    defaults: { _controller: MyTestBundle:Default:create }
+
+doc_query:
+    path:    /query
+    defaults: { _controller: MyTestBundle:Default:query }
+
+reception_single:
+    path:     /reception/qwe
+    defaults: { _controller: MyTestBundle:Reception:showReception }
+
+reception_all:
+    path:     /reception/all
+    defaults: { _controller: MyTestBundle:Reception:showAllReception }
+
+reception_create:
+    path:     /reception/create
+    defaults: { _controller: MyTestBundle:Reception:createReception }
+
+create_doctor:
+    path:    /createdoc
+    defaults: { _controller: MyTestBundle:Default:createDoc }
+
+create_pet:
+    path:    /createpet
+    defaults: { _controller: MyTestBundle:Default:createPet }

@@ -56,8 +56,8 @@ class client
     protected $reception;
 
     public function __construct() {
-        $this->reception = new ArrayCollection();
         $this->pet = new ArrayCollection();
+        $this->reception = new ArrayCollection();        
     }
 
     /**

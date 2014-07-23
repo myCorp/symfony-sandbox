@@ -1,13 +1,14 @@
 <?php 
+//src/My/TestBundle/Entity/client.php
 
-//src/Doc/StoreBundle/Entity/client.php
-namespace Doc\StoreBundle\Entity;
+namespace My\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
-*@ORM\Entity(repositoryClass="Doc\StoreBundle\Entity\clientRepository")
+*@ORM\Entity(repositoryClass="My\TestBundle\Repository\clientRepository")
+*@ORM\Table(name="client")
 */
 class client
 {
@@ -44,20 +45,12 @@ class client
 	protected $mail;
 
     /**
-    *@ORM\OneToMany(targetEntity="pet", mappedBy="clipet")
-    */
-    protected $pet;
-
-
-
-    /**
     *@ORM\OneToMany(targetEntity="reception", mappedBy="clirec")
     */
     protected $reception;
 
     public function __construct() {
-        $this->reception = new ArrayCollection();
-        $this->pet = new ArrayCollection();
+        $this->reception = new ArrayCollection();        
     }
 
     /**
@@ -186,45 +179,12 @@ class client
     }
 
     /**
-     * Add pet
-     *
-     * @param \Doc\StoreBundle\Entity\pet $pet
-     * @return client
-     */
-    public function addPet(\Doc\StoreBundle\Entity\pet $pet)
-    {
-        $this->pet[] = $pet;
-
-        return $this;
-    }
-
-    /**
-     * Remove pet
-     *
-     * @param \Doc\StoreBundle\Entity\pet $pet
-     */
-    public function removePet(\Doc\StoreBundle\Entity\pet $pet)
-    {
-        $this->pet->removeElement($pet);
-    }
-
-    /**
-     * Get pet
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPet()
-    {
-        return $this->pet;
-    }
-
-    /**
      * Add reception
      *
-     * @param \Doc\StoreBundle\Entity\reception $reception
+     * @param \My\TestBundle\Entity\reception $reception
      * @return client
      */
-    public function addReception(\Doc\StoreBundle\Entity\reception $reception)
+    public function addReception(\My\TestBundle\Entity\reception $reception)
     {
         $this->reception[] = $reception;
 
@@ -234,9 +194,9 @@ class client
     /**
      * Remove reception
      *
-     * @param \Doc\StoreBundle\Entity\reception $reception
+     * @param \My\TestBundle\Entity\reception $reception
      */
-    public function removeReception(\Doc\StoreBundle\Entity\reception $reception)
+    public function removeReception(\My\TestBundle\Entity\reception $reception)
     {
         $this->reception->removeElement($reception);
     }

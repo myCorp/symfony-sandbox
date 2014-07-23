@@ -1,9 +1,10 @@
 <?php 
+//src/My/TestBundle/Entity/pet.php
 
-//src/Doc/StoreBundle/Entity/pc_pet.php
-namespace Doc\StoreBundle\Entity;
+namespace My\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
 *@ORM\Entity
@@ -39,10 +40,14 @@ class pet
 	protected $age;
 
 	/**
-	*@ORM\ManyToOne(targetEntity="client", inversedBy="pet")
+	*@ORM\ManyToOne(targetEntity="client")
 	*@ORM\JoinColumn(name="clientID",referencedColumnName="clientNO")
 	*/
 	protected $clipet;
+
+    public function __construct() {
+        $this->clipet = new ArrayCollection();        
+    }
 
     /**
      * Get id
@@ -126,10 +131,10 @@ class pet
     /**
      * Set clipet
      *
-     * @param \Doc\StoreBundle\Entity\client $clipet
+     * @param \My\TestBundle\Entity\client $clipet
      * @return pet
      */
-    public function setClipet(\Doc\StoreBundle\Entity\client $clipet = null)
+    public function setClipet(\My\TestBundle\Entity\client $clipet = null)
     {
         $this->clipet = $clipet;
 
@@ -139,7 +144,7 @@ class pet
     /**
      * Get clipet
      *
-     * @return \Doc\StoreBundle\Entity\client 
+     * @return \My\TestBundle\Entity\client 
      */
     public function getClipet()
     {

@@ -15,7 +15,7 @@ class veterinarian
 	*@ORM\Id
 	*@ORM\Column(type="integer", unique=true)
 	*@ORM\GeneratedValue(strategy="AUTO")
-	*@ORM\OneToOne(targetEntity="reception",mappedBy="docid")
+	*@ORM\OneToOne(targetEntity="reception", mappedBy="docid")
 	*/
 	protected $id;
 

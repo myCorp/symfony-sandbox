@@ -13,3 +13,7 @@ DemosBlogBundle:
 Test:
     pattern:      /helloo/{name}
     defaults:     { _controller: MyTestBundle:Test:index, color:white }
+
+MyTestBundle:
+    resource: "@MyTestBundle/Resources/config/routing.yml"
+    prefix:   /test

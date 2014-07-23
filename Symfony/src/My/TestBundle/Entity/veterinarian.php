@@ -1,7 +1,7 @@
 <?php 
+//src/My/TestBundle/Entity/veterinarian.php
 
-//src/Doc/StoreBundle/Entity/pc_veterinarian.php
-namespace Doc\StoreBundle\Entity;
+namespace My\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -15,7 +15,6 @@ class veterinarian
 	*@ORM\Id
 	*@ORM\Column(type="integer", unique=true)
 	*@ORM\GeneratedValue(strategy="AUTO")
-	*@ORM\OneToOne(targetEntity="reception",mappedBy="docid")
 	*/
 	protected $id;
 

@@ -1,0 +1,55 @@
+<?php 
+//src/My/TestBundle/Entity/client.php
+
+namespace My\TestBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+*@ORM\Entity(repositoryClass="My\TestBundle\Repository\clientRepository")
+*@ORM\Table(name="client")
+*/
+class client
+{
+	/**
+	*@ORM\Id
+	*@ORM\Column(type="integer", unique=true)
+	*@ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $clientNO;
+
+	/**
+	*@ORM\Column(type="string", length=16, nullable=true)
+	*/
+	protected $firstName;
+
+	/**
+	*@ORM\Column(type="string", length=16, nullable=true)
+	*/
+	protected $lastName;
+
+	/**
+	*@ORM\Column(type="string", length=64, nullable=true)
+	*/
+	protected $address;
+
+	/**
+	*@ORM\Column(type="string", length=16, nullable=true)
+	*/
+	protected $phone;
+
+	/**
+	*@ORM\Column(type="string", length=32, nullable=true)
+	*/
+	protected $mail;
+
+    /**
+    *@ORM\OneToMany(targetEntity="reception", mappedBy="clirec")
+    */
+    protected $reception;
+
+    public function __construct() {
+        $this->reception = new ArrayCollection();        
+    }
+}

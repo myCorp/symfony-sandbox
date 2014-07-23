@@ -16,3 +16,6 @@ doc_query:
     path:    /query
     defaults: { _controller: DocStoreBundle:Default:query }
 
+reception_single:
+    path:     /reception/qwe
+    defaults: { _controller: DocStoreBundle:Reception:showReception }
